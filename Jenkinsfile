@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Checkout Code from GitHub') {
             steps {
-                git branch: 'main', url: 'https://github.com/TejPATHAK/DevOps-CI-CD-Pipeline-using-Jenkins-Docker-and-Kubernetes.git'
+                git branch: 'main', url: 'https://github.com/anbolimohan-03/Devops--Project--Login360.git'
             }
         }
 
         stage('Build Backend Image') {
             steps {
                 script {
-                    docker.build("tpathak21/devops-backend:latest", "./backend")
+                    docker.build("anboli03/devops-backend:latest", "./backend")
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Build Frontend Image') {
             steps {
                 script {
-                    docker.build("tpathak21/devops-frontend:latest", "./frontend")
+                    docker.build("anboli03/devops-frontend:latest", "./frontend")
                 }
             }
         }
@@ -42,8 +42,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-                        docker.image("tpathak21/devops-backend:latest").push()
-                        docker.image("tpathak21/devops-frontend:latest").push()
+                        docker.image("anboli03/devops-backend:latest").push()
+                        docker.image("anboli03/devops-frontend:latest").push()
                     }
                 }
             }
