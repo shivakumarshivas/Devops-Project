@@ -17,8 +17,8 @@ The goal is to build a reliable, production-ready DevOps workflow.
 ## 🌐 Hosting Environment
 
 - **Cloud Platform**: AWS EC2
-- **Instance Type**: t2.medium (2 vCPU, 4 GB RAM)
-- **Operating System**: Ubuntu 22.04 LTS
+- **Instance Type**: c7i-flex.large (2 vCPU, 4 GB RAM)
+- **Operating System**: Ubuntu 24.04 LTS
 - **Security Group Ports Opened**: 22 (SSH), 8080 (Jenkins), 30080 (Backend), 30081 (Frontend)
 - **Minikube Tunnel**: Enabled using `minikube tunnel --bind-address 0.0.0.0`
 
@@ -113,11 +113,11 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 ### Build & Push Images
 ```
-docker build -t tpathak21/devops-backend:latest ./backend
-docker build -t tpathak21/devops-frontend:latest ./frontend
+docker build -t shivakumar46/devops-backend:latest ./backend
+docker build -t shivakumar46/devops-frontend:latest ./frontend
 
-docker push tpathak21/devops-backend:latest
-docker push tpathak21/devops-frontend:latest
+docker push shivakumar46/devops-backend:latest
+docker push shivakumar46/devops-frontend:latest
 
 ```
 ### Apply Resources
@@ -144,14 +144,14 @@ pipeline {
     stages {
         stage('Checkout Code from GitHub') {
             steps {
-                git branch: 'main', url: 'https://github.com/TejPATHAK/DevOps-CI-CD-Pipeline-using-Jenkins-Docker-and-Kubernetes.git'
+                git branch: 'main', url: 'https://github.com/shivakumarshivas/Devops-Project.git'
             }
         }
 
         stage('Build Backend Image') {
             steps {
                 script {
-                    docker.build("tpathak21/devops-backend:latest", "./backend")
+                    docker.build("shivakumar46/devops-backend:latest", "./backend")
                 }
             }
         }
@@ -159,7 +159,7 @@ pipeline {
         stage('Build Frontend Image') {
             steps {
                 script {
-                    docker.build("tpathak21/devops-frontend:latest", "./frontend")
+                    docker.build("shivakumar46/devops-frontend:latest", "./frontend")
                 }
             }
         }
@@ -178,8 +178,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-                        docker.image("tpathak21/devops-backend:latest").push()
-                        docker.image("tpathak21/devops-frontend:latest").push()
+                        docker.image("shivakumar46/devops-backend:latest").push()
+                        docker.image("shivakumar46/devops-frontend:latest").push()
                     }
                 }
             }
@@ -215,8 +215,8 @@ curl http://<EC2-PUBLIC-IP>:30081    # Frontend
 
 ## 📎 Links
 
-- 🔗 GitHub Repository: [DevOps-CI-CD-Pipeline](https://github.com/tpathak21/DevOps-CI-CD-Pipeline-using-Jenkins-Docker-and-Kubernetes)
-- 🔗 LinkedIn Profile: [Tejaswi Pathak](https://www.linkedin.com/in/tejaswi-pathak)
+- 🔗 GitHub Repository: Devops-Project]https://github.com/shivakumarshivas/Devops-Project.git)
+- 🔗 LinkedIn Profile: Shiva Kumar]https://www.linkedin.com/in/shiva-kumar11)
 
 ---
 
