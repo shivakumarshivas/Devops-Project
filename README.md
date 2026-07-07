@@ -7,7 +7,7 @@ Design and automate a robust CI/CD pipeline to deploy a multi-tier web applicati
 - **Jenkins** for Continuous Integration and Continuous Deployment
 - **Docker** for containerization
 - **Kubernetes** for orchestration (via **Minikube**)
-- **AWS EC2** (t2.medium) as the host environment
+- **AWS EC2** (c7i-flex.large) as the host environment
 - **GitHub** as the code repository
 
 The goal is to build a reliable, production-ready DevOps workflow.
@@ -215,8 +215,8 @@ curl http://<EC2-PUBLIC-IP>:30081    # Frontend
 
 ## 📎 Links
 
-- 🔗 GitHub Repository: Devops-Project]https://github.com/shivakumarshivas/Devops-Project.git)
-- 🔗 LinkedIn Profile: Shiva Kumar]https://www.linkedin.com/in/shiva-kumar11)
+- 🔗 GitHub Repository:[Devops-Project]https://github.com/shivakumarshivas/Devops-Project.git)
+- 🔗 LinkedIn Profile:[Shiva Kumar]https://www.linkedin.com/in/shiva-kumar11)
 
 ---
 
